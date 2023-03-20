@@ -50,10 +50,10 @@ public class RecentFilesProvider implements DynamicMenuProvider
 	{
 		return false;
 	} //}}}
-
 	//{{{ update() method
 	public void update(JMenu menu)
 	{
+
 		final View view = GUIUtilities.getView(menu);
 
 		//{{{ ActionListener...
@@ -83,6 +83,7 @@ public class RecentFilesProvider implements DynamicMenuProvider
 		{
 			JMenuItem menuItem = new JMenuItem(
 				jEdit.getProperty("no-recent-files.label"));
+
 			menuItem.setEnabled(false);
 			menu.add(menuItem);
 			return;
@@ -105,8 +106,8 @@ public class RecentFilesProvider implements DynamicMenuProvider
 					String regex = typedText;
 					if ((! typedText.contains("*")) && (! typedText.contains("?")))
 					{
-						// Old style (before jEdit 4.3pre18): Match start of file name
-						regex = regex + "*";
+					    // Old style (before jEdit 4.3pre18): Match start of file name
+						regex = "*" + regex + "*";
 					}
 					pattern = Pattern.compile(StandardUtilities.globToRE(regex),
 						Pattern.CASE_INSENSITIVE);
