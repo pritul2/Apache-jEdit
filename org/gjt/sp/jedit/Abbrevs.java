@@ -86,6 +86,10 @@ public class Abbrevs
 		int lineStart = buffer.getLineStartOffset(line);
 		int caret = textArea.getCaretPosition();
 
+		
+		
+		System.out.println(textArea.getText());
+
 		String lineText = buffer.getLineText(line);
 		if(lineText.length() == 0)
 		{

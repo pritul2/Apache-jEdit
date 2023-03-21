@@ -58,6 +58,11 @@ import org.gjt.sp.util.*;
  */
 public class StatusBar extends JPanel
 {
+	private int prev_bufferLength=0;
+	private int total_no_words=0;
+	private int prev_caret_pos=0;
+	private int total_words_from_caret=0;
+
 	//{{{ StatusBar constructor
 	public StatusBar(View view)
 	{
@@ -338,6 +343,7 @@ public class StatusBar extends JPanel
 	/** Updates the status bar with information about the caret position, line number, etc */
 	public void updateCaretStatus()
 	{
+		System.out.println("Caret status called ");
 		if (showCaretStatus)
 		{
 			Buffer buffer = view.getBuffer();
@@ -355,6 +361,7 @@ public class StatusBar extends JPanel
 			int caretPosition = textArea.getCaretPosition();
 			int currLine = textArea.getCaretLine();
 
+			//int total_words_from_caret = 20;
 			// there must be a better way of fixing this...
 			// the problem is that this method can sometimes
 			// be called as a result of a text area scroll
@@ -370,6 +377,15 @@ public class StatusBar extends JPanel
 				return;
 
 			int bufferLength = buffer.getLength();
+			if(prev_bufferLength == 0 || prev_bufferLength!=bufferLength){
+				 total_no_words = textArea.getText().split(" ").length+1;
+			}
+			prev_bufferLength = bufferLength;
+
+			if(prev_caret_pos!=caretPosition){
+				total_words_from_caret = textArea.getText(0,caretPosition).split(" ").length+1;
+			}
+			prev_caret_pos = caretPosition;
 
 			buffer.getText(start,dot,seg);
 			int virtualPosition = StandardUtilities.getVirtualWidth(seg,
@@ -418,7 +434,11 @@ public class StatusBar extends JPanel
 				buf.append(bufferLength);
 				buf.append(')');
 			}
-
+			buf.append('(');
+			buf.append(total_words_from_caret);
+			buf.append('/');
+			buf.append(total_no_words);
+			buf.append(')');
 			caretStatus.setText(buf.toString());
 			buf.setLength(0);
 		}
