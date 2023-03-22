@@ -43,12 +43,7 @@ import javax.swing.plaf.LayerUI;
 import javax.swing.text.Segment;
 import javax.swing.text.TabExpander;
 
-import org.gjt.sp.jedit.Debug;
-import org.gjt.sp.jedit.IPropertyManager;
-import org.gjt.sp.jedit.JEditActionContext;
-import org.gjt.sp.jedit.JEditActionSet;
-import org.gjt.sp.jedit.JEditBeanShellAction;
-import org.gjt.sp.jedit.TextUtilities;
+import org.gjt.sp.jedit.*;
 import org.gjt.sp.jedit.buffer.JEditBuffer;
 import org.gjt.sp.jedit.input.AbstractInputHandler;
 import org.gjt.sp.jedit.input.DefaultInputHandlerProvider;
@@ -158,6 +153,35 @@ public abstract class TextArea extends JPanel
 		return new TriangleFoldPainter();
 	} //}}}
 
+	public boolean toggleScrollBar()
+	{
+		boolean showing = jEdit.getBooleanProperty("view.gutter.scrollBar.enabled");
+		if (showing) {
+			RequestFocusLayerUI reqFocus = new RequestFocusLayerUI();
+			//verticalBoxFn = new Box(BoxLayout.X_AXIS);
+			verticalBox.remove(new JLayer<JComponent>(
+					vertical , reqFocus));
+			vertical.setRequestFocusEnabled(false);
+			add(ScrollLayout.RIGHT,verticalBox);
+			remove(new JLayer<JComponent>(horizontal, reqFocus));
+			horizontal.setRequestFocusEnabled(false);
+			//horizontal.setValues(0,0,0,0);
+			return true;
+		}
+		else {
+			RequestFocusLayerUI reqFocus = new RequestFocusLayerUI();
+			//verticalBoxFn = new Box(BoxLayout.X_AXIS);
+			verticalBox.add(new JLayer<JComponent>(
+					vertical, reqFocus));
+			vertical.setRequestFocusEnabled(false);
+			add(ScrollLayout.RIGHT, verticalBox);
+			add(ScrollLayout.BOTTOM, new JLayer<JComponent>(horizontal, reqFocus));
+			horizontal.setRequestFocusEnabled(false);
+
+			//horizontal.setValues(0, 0, 0, 0);
+			return false;
+		}
+	}
 	//{{{ initInputHandler() method
 	/**
 	 * Creates an actionContext and initializes the input
