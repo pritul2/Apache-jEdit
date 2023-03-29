@@ -1,0 +1,106 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/org/gjt/sp/jedit/bsh/BSHEnhancedForStatement.java</file>
+  <line>21</line>
+  <module>jEdit</module>
+  <package>org.gjt.sp.jedit.bsh</package>
+  <entry_point TYPE="method" FQNAME="org.gjt.sp.jedit.bsh.BSHEnhancedForStatement java.lang.Object eval(org.gjt.sp.jedit.bsh.CallStack callstack, org.gjt.sp.jedit.bsh.Interpreter interpreter)" />
+  <problem_class id="MethodCoupling" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overly coupled method</problem_class>
+  <description>&lt;code&gt;eval&lt;/code&gt; is overly coupled (# referenced classes = 12) #loc</description>
+  <highlighted_element>eval</highlighted_element>
+  <language>JAVA</language>
+  <offset>18</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/org/gjt/sp/jedit/bsh/BSHPrimarySuffix.java</file>
+  <line>67</line>
+  <module>jEdit</module>
+  <package>org.gjt.sp.jedit.bsh</package>
+  <entry_point TYPE="method" FQNAME="org.gjt.sp.jedit.bsh.BSHPrimarySuffix java.lang.Object doSuffix(java.lang.Object obj, boolean toLHS, org.gjt.sp.jedit.bsh.CallStack callstack, org.gjt.sp.jedit.bsh.Interpreter interpreter)" />
+  <problem_class id="MethodCoupling" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overly coupled method</problem_class>
+  <description>&lt;code&gt;doSuffix&lt;/code&gt; is overly coupled (# referenced classes = 12) #loc</description>
+  <highlighted_element>doSuffix</highlighted_element>
+  <language>JAVA</language>
+  <offset>15</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/org/gjt/sp/jedit/bsh/BSHTryStatement.java</file>
+  <line>47</line>
+  <module>jEdit</module>
+  <package>org.gjt.sp.jedit.bsh</package>
+  <entry_point TYPE="method" FQNAME="org.gjt.sp.jedit.bsh.BSHTryStatement java.lang.Object eval(org.gjt.sp.jedit.bsh.CallStack callstack, org.gjt.sp.jedit.bsh.Interpreter interpreter)" />
+  <problem_class id="MethodCoupling" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overly coupled method</problem_class>
+  <description>&lt;code&gt;eval&lt;/code&gt; is overly coupled (# referenced classes = 13) #loc</description>
+  <highlighted_element>eval</highlighted_element>
+  <language>JAVA</language>
+  <offset>15</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/org/gjt/sp/jedit/bsh/ClassGeneratorImpl.java</file>
+  <line>54</line>
+  <module>jEdit</module>
+  <package>org.gjt.sp.jedit.bsh</package>
+  <entry_point TYPE="method" FQNAME="org.gjt.sp.jedit.bsh.ClassGeneratorImpl java.lang.Class generateClassImpl(java.lang.String name, org.gjt.sp.jedit.bsh.Modifiers modifiers, java.lang.Class[] interfaces, java.lang.Class superClass, org.gjt.sp.jedit.bsh.BSHBlock block, boolean isInterface, org.gjt.sp.jedit.bsh.CallStack callstack, org.gjt.sp.jedit.bsh.Interpreter interpreter)" />
+  <problem_class id="MethodCoupling" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overly coupled method</problem_class>
+  <description>&lt;code&gt;generateClassImpl&lt;/code&gt; is overly coupled (# referenced classes = 14) #loc</description>
+  <highlighted_element>generateClassImpl</highlighted_element>
+  <language>JAVA</language>
+  <offset>21</offset>
+  <length>17</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/org/gjt/sp/jedit/bsh/ClassGeneratorUtil.java</file>
+  <line>814</line>
+  <module>jEdit</module>
+  <package>org.gjt.sp.jedit.bsh</package>
+  <entry_point TYPE="method" FQNAME="org.gjt.sp.jedit.bsh.ClassGeneratorUtil org.gjt.sp.jedit.bsh.ClassGeneratorUtil.ConstructorArgs getConstructorArgs(java.lang.String superClassName, org.gjt.sp.jedit.bsh.This classStaticThis, java.lang.Object[] consArgs, int index)" />
+  <problem_class id="MethodCoupling" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overly coupled method</problem_class>
+  <description>&lt;code&gt;getConstructorArgs&lt;/code&gt; is overly coupled (# referenced classes = 13) #loc</description>
+  <highlighted_element>getConstructorArgs</highlighted_element>
+  <language>JAVA</language>
+  <offset>31</offset>
+  <length>18</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/org/gjt/sp/jedit/bsh/Name.java</file>
+  <line>781</line>
+  <module>jEdit</module>
+  <package>org.gjt.sp.jedit.bsh</package>
+  <entry_point TYPE="method" FQNAME="org.gjt.sp.jedit.bsh.Name java.lang.Object invokeMethod(org.gjt.sp.jedit.bsh.Interpreter interpreter, java.lang.Object[] args, org.gjt.sp.jedit.bsh.CallStack callstack, org.gjt.sp.jedit.bsh.SimpleNode callerInfo)" />
+  <problem_class id="MethodCoupling" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overly coupled method</problem_class>
+  <description>&lt;code&gt;invokeMethod&lt;/code&gt; is overly coupled (# referenced classes = 12) #loc</description>
+  <highlighted_element>invokeMethod</highlighted_element>
+  <language>JAVA</language>
+  <offset>18</offset>
+  <length>12</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/org/gjt/sp/jedit/search/HyperSearchResults.java</file>
+  <line>670</line>
+  <module>jEdit</module>
+  <package>org.gjt.sp.jedit.search</package>
+  <entry_point TYPE="method" FQNAME="org.gjt.sp.jedit.search.HyperSearchResults.MouseHandler void showPopupMenu(java.awt.event.MouseEvent evt)" />
+  <problem_class id="MethodCoupling" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overly coupled method</problem_class>
+  <description>&lt;code&gt;showPopupMenu&lt;/code&gt; is overly coupled (# referenced classes = 12) #loc</description>
+  <highlighted_element>showPopupMenu</highlighted_element>
+  <language>JAVA</language>
+  <offset>15</offset>
+  <length>13</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/org/gjt/sp/jedit/textarea/StandaloneTextArea.java</file>
+  <line>116</line>
+  <module>jEdit</module>
+  <package>org.gjt.sp.jedit.textarea</package>
+  <entry_point TYPE="method" FQNAME="org.gjt.sp.jedit.textarea.StandaloneTextArea StandaloneTextArea(org.gjt.sp.jedit.IPropertyManager propertyManager)" />
+  <problem_class id="MethodCoupling" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overly coupled method</problem_class>
+  <description>&lt;code&gt;StandaloneTextArea&lt;/code&gt; is overly coupled (# referenced classes = 12) #loc</description>
+  <highlighted_element>StandaloneTextArea</highlighted_element>
+  <language>JAVA</language>
+  <offset>8</offset>
+  <length>18</length>
+</problem>
+</problems>
