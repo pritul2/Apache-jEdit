@@ -1424,7 +1424,7 @@ public class Buffer extends JEditBuffer
 	 * @param shortcut The shortcut ('\0' if none)
 	 * @since jEdit 3.2pre1
 	 */
-	public void addMarker(char shortcut, int pos)
+	/**public void addMarker(char shortcut, int pos)
 	{
 		Marker markerN = new Marker(this,shortcut,pos);
 		boolean added = false;
@@ -1469,7 +1469,60 @@ public class Buffer extends JEditBuffer
 			EditBus.send(new BufferUpdate(this,null,
 				BufferUpdate.MARKERS_CHANGED));
 		}
-	} //}}}
+	} //}}}**/
+
+
+	public void addMarker(char shortcut, int pos) {
+		Marker markerN = new Marker(this, shortcut, pos);
+		boolean added = false;
+
+		// don't sort markers while buffer is being loaded
+		if (isLoaded()) {
+			setFlag(MARKERS_CHANGED, true);
+
+			markerN.createPosition();
+
+			removeMarkersWithShortcut(shortcut);
+			removeMarkersWithPosition(pos);
+
+			for (int i = 0; i < markers.size(); i++) {
+				Marker marker = markers.get(i);
+				if (marker.getPosition() > pos) {
+					markers.insertElementAt(markerN, i);
+					added = true;
+					break;
+				}
+			}
+		}
+
+		if (!added) {
+			markers.addElement(markerN);
+		}
+
+		if (isLoaded() && !getFlag(TEMPORARY)) {
+			EditBus.send(new BufferUpdate(this, null, BufferUpdate.MARKERS_CHANGED));
+		}
+	}
+
+	private void removeMarkersWithShortcut(char shortcut) {
+		for (int i = 0; i < markers.size(); i++) {
+			Marker marker = markers.get(i);
+			if (shortcut != '\0' && marker.getShortcut() == shortcut) {
+				marker.setShortcut('\0');
+			}
+		}
+	}
+
+	private void removeMarkersWithPosition(int pos) {
+		for (int i = 0; i < markers.size(); i++) {
+			Marker marker = markers.get(i);
+			if (marker.getPosition() == pos) {
+				markers.removeElementAt(i);
+				i--;
+			}
+		}
+	}
+
 
 	//{{{ getMarkerInRange() method
 	/**
@@ -2339,3 +2392,4 @@ public class Buffer extends JEditBuffer
 
 	//}}}
 }
+
